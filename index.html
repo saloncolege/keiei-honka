@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>経営本科 プロフェッショナルオンラインクラス｜受講ページ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500;700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#14213d; --navy-2:#1d2d52; --navy-3:#2a3c66;
+  --gold:#b8955a; --gold-2:#d4b88a; --gold-soft:#f4ecdf;
+  --bg:#f8f6f2; --card:#ffffff; --ink:#1e2430; --muted:#6b7280; --line:#e6e1d8;
+  --done:#3f7d5c;
+  --radius:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+body{font-family:"Noto Sans JP",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;font-size:15px}
+.serif{font-family:"Zen Old Mincho",serif}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+.hidden{display:none!important}
+
+/* ===== Login ===== */
+#login{min-height:100vh;display:grid;place-items:center;padding:24px 16px;
+  background:radial-gradient(1200px 600px at 80% -10%,var(--navy-3),transparent),var(--navy)}
+.login-card{width:100%;max-width:400px;background:#fff;border-radius:18px;padding:40px 28px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.35)}
+.login-card .brand{font-size:11px;letter-spacing:.3em;color:var(--gold)}
+.login-card h1{font-size:26px;margin:10px 0 2px;color:var(--navy)}
+.login-card .sub{font-size:13px;color:var(--muted);margin-bottom:28px}
+.login-card .rule{width:40px;height:1px;background:var(--gold);margin:18px auto}
+.login-card input{width:100%;padding:14px 16px;border:1px solid var(--line);border-radius:10px;font-size:16px;text-align:center;letter-spacing:.1em}
+.login-card input:focus{outline:2px solid var(--gold-2);border-color:var(--gold)}
+.btn{text-decoration:none;display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font-weight:700;font-size:14px;transition:.15s}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{background:#a6844c}
+.btn-line{border:1px solid var(--line);background:#fff}
+.btn-line:hover{border-color:var(--gold)}
+.btn-done{background:var(--done);color:#fff}
+.login-card .btn{width:100%;margin-top:14px;padding:14px}
+.login-err{color:#b4443c;font-size:13px;margin-top:10px;min-height:1.5em}
+.login-note{font-size:12px;color:var(--muted);margin-top:18px}
+
+/* ===== Header ===== */
+header{position:sticky;top:0;z-index:30;background:var(--navy);color:#fff}
+.hd{max-width:1240px;margin:0 auto;display:flex;align-items:center;gap:14px;padding:12px 16px}
+.hd .logo{display:flex;flex-direction:column;line-height:1.3;text-decoration:none;min-width:0}
+.hd .logo small{font-size:10px;letter-spacing:.25em;color:var(--gold-2)}
+.hd .logo b{font-family:"Zen Old Mincho",serif;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.hd .prog{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:12px;color:#cfd6e6}
+.bar{height:6px;border-radius:99px;background:rgba(255,255,255,.15);overflow:hidden;width:120px}
+.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .4s}
+.menu-btn{display:none;width:38px;height:38px;border-radius:8px;border:1px solid rgba(255,255,255,.25)}
+.logout{white-space:nowrap;font-size:12px;color:#cfd6e6;padding:6px 10px;border-radius:6px}
+.logout:hover{background:rgba(255,255,255,.1)}
+
+/* ===== Layout ===== */
+.wrap{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:300px 1fr;gap:28px;padding:24px 16px 80px}
+aside{position:sticky;top:76px;align-self:start;max-height:calc(100vh - 96px);overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:var(--radius)}
+.side-home{display:flex;align-items:center;gap:8px;padding:14px 18px;border-bottom:1px solid var(--line);font-weight:700;font-size:14px;text-decoration:none}
+.side-home:hover{background:var(--gold-soft)}
+.ch{border-bottom:1px solid var(--line)}
+.ch:last-child{border-bottom:none}
+.ch-hd{width:100%;text-align:left;padding:14px 18px 10px;display:block}
+.ch-hd small{display:block;font-size:10px;letter-spacing:.2em;color:var(--gold)}
+.ch-hd span{font-family:"Zen Old Mincho",serif;font-weight:700;font-size:15px;color:var(--navy)}
+.ch-hd em{font-style:normal;font-size:11px;color:var(--muted);margin-left:6px}
+.ls{list-style:none;padding:0 8px 10px}
+.ls a{display:flex;gap:10px;align-items:flex-start;padding:8px 10px;border-radius:8px;text-decoration:none;font-size:13px;line-height:1.6}
+.ls a:hover{background:var(--bg)}
+.ls a.active{background:var(--gold-soft);font-weight:700}
+.chk{flex:none;width:18px;height:18px;border-radius:50%;border:1.5px solid #c9c2b5;margin-top:2px;display:grid;place-items:center;font-size:11px;color:#fff}
+.chk.on{background:var(--done);border-color:var(--done)}
+.ls .soon{font-size:10px;color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:0 4px;margin-left:auto;flex:none;align-self:center}
+
+main{min-width:0}
+
+/* ===== Home ===== */
+.hero{background:linear-gradient(135deg,var(--navy),var(--navy-3));color:#fff;border-radius:18px;padding:36px 32px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;right:-60px;top:-60px;width:240px;height:240px;border:1px solid rgba(212,184,138,.35);border-radius:50%}
+.hero small{letter-spacing:.3em;font-size:11px;color:var(--gold-2)}
+.hero h1{font-family:"Zen Old Mincho",serif;font-size:30px;line-height:1.4;margin:8px 0 6px}
+.hero p{color:#d5dbe8;font-size:14px;max-width:560px}
+.hero .stats{display:flex;gap:28px;margin-top:22px;flex-wrap:wrap}
+.hero .stats div{font-size:12px;color:#cfd6e6}
+.hero .stats b{display:block;font-family:"Zen Old Mincho",serif;font-size:26px;color:#fff}
+.resume{margin-top:20px}
+.sec-t{font-family:"Zen Old Mincho",serif;font-size:19px;color:var(--navy);margin:36px 0 14px;display:flex;align-items:center;gap:10px}
+.sec-t:before{content:"";width:18px;height:1px;background:var(--gold)}
+.notice{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:6px 20px}
+.notice li{list-style:none;padding:12px 0;border-bottom:1px dashed var(--line);font-size:14px;display:flex;gap:14px}
+.notice li:last-child{border-bottom:none}
+.notice time{color:var(--gold);font-size:12px;flex:none;padding-top:2px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-decoration:none;display:flex;flex-direction:column;gap:8px;transition:.15s}
+.card:hover{border-color:var(--gold);transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,33,61,.08)}
+.card small{font-size:10px;letter-spacing:.2em;color:var(--gold)}
+.card h3{font-family:"Zen Old Mincho",serif;font-size:18px;color:var(--navy);line-height:1.5}
+.card p{font-size:13px;color:var(--muted);flex:1}
+.card .bar{width:100%;background:var(--line);margin-top:6px}
+.card .meta{font-size:12px;color:var(--muted);display:flex;justify-content:space-between}
+
+/* ===== Lesson ===== */
+.crumb{font-size:12px;color:var(--muted);margin-bottom:10px}
+.crumb a{text-decoration:none;color:var(--gold)}
+.lesson-t{font-family:"Zen Old Mincho",serif;font-size:24px;line-height:1.5;color:var(--navy);margin-bottom:16px}
+.player{position:relative;aspect-ratio:16/9;background:#0b1224;border-radius:var(--radius);overflow:hidden}
+.player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player .empty{position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#aab3c8;padding:20px}
+.player .empty b{display:block;font-family:"Zen Old Mincho",serif;color:#fff;font-size:20px;margin-bottom:6px}
+.actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:16px 0 4px}
+.actions .sp{flex:1}
+.pane{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;margin-top:16px}
+.pane h4{font-size:13px;letter-spacing:.1em;color:var(--gold);margin-bottom:8px}
+.pane p{font-size:14px;white-space:pre-wrap}
+.pane.work{border-left:4px solid var(--gold)}
+.files{display:flex;flex-wrap:wrap;gap:10px}
+.files a{display:inline-flex;align-items:center;gap:6px;padding:9px 14px;border:1px solid var(--line);border-radius:10px;font-size:13px;text-decoration:none;background:var(--bg)}
+.files a:hover{border-color:var(--gold)}
+.files .na{opacity:.5;pointer-events:none}
+textarea{width:100%;min-height:120px;border:1px solid var(--line);border-radius:10px;padding:12px 14px;font:inherit;font-size:14px;resize:vertical;background:var(--bg)}
+textarea:focus{outline:2px solid var(--gold-2);background:#fff}
+.saved{font-size:12px;color:var(--done);margin-top:6px;min-height:1.4em}
+.nav2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px}
+.nav2 a{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 18px;text-decoration:none;font-size:13px}
+.nav2 a:hover{border-color:var(--gold)}
+.nav2 a small{display:block;color:var(--muted);font-size:11px}
+.nav2 .next{text-align:right;grid-column:2}
+footer{text-align:center;font-size:11px;color:var(--muted);padding:24px 16px 40px;letter-spacing:.1em}
+
+/* ===== Mobile ===== */
+.scrim{display:none}
+@media (max-width:900px){
+  .wrap{grid-template-columns:1fr;padding-top:16px}
+  .menu-btn{display:grid;place-items:center}
+  aside{position:fixed;top:0;left:0;bottom:0;width:86%;max-width:340px;max-height:none;border-radius:0;z-index:50;transform:translateX(-100%);transition:transform .25s}
+  aside.open{transform:none}
+  .scrim.open{display:block;position:fixed;inset:0;background:rgba(0,0,0,.4);z-index:40}
+  .hd .prog .bar{width:60px}
+  .hero{padding:28px 22px}.hero h1{font-size:24px}
+  .lesson-t{font-size:20px}
+  .pane{padding:18px}
+}
+@media (max-width:480px){ .hd .prog span{display:none} }
+</style>
+</head>
+<body>
+
+<!-- =====================================================================
+  ★ 講座の中身はここ（COURSE）だけ編集すればOKです ★
+
+  ・password … 生徒さんに伝える合言葉
+  ・video    … YouTubeのURLをそのまま貼ればOK（限定公開推奨）
+               例）"https://youtu.be/xxxxxxxxxxx"
+               空欄 "" のままなら「準備中」と表示されます
+  ・work     … 実践ワーク（今回やること）
+  ・files    … 資料リンク（Googleドライブ/Canva等のURL）
+  ・レッスンを増やすときは { ... } を1つコピーして、id を重複しないように変更
+====================================================================== -->
+<script>
+const COURSE = {
+  brand: "SALON COLLEGE EDUCATION",
+  title: "経営本科",
+  subtitle: "プロフェッショナルオンラインクラス",
+  password: "salocolle2026",
+  lead: "技（運営力）・知（経営力）・心（人間力）。3つの力をバランスよく育て、長く愛されるサロンをつくるための講座です。",
+
+  notices: [
+    { date: "2026.10.01", text: "講座配信ページをオープンしました。まずは「オリエンテーション」からご覧ください。" },
+  ],
+
+  chapters: [
+    {
+      id: "c0", label: "ORIENTATION", title: "オリエンテーション",
+      lead: "受講の進め方と、本講座の土台となるトリニティ経営の考え方を学びます。",
+      lessons: [
+        { id: "0-1", title: "経営本科へようこそ｜受講の進め方", video: "", min: 15,
+          desc: "講座の全体像、1年間の流れ、動画とワーク・個別コンサルの活用方法をお伝えします。",
+          work: "受講ガイドを読み、この1年で叶えたいサロンの姿を3行で書き出してみましょう。",
+          files: [{ name: "受講ガイド", url: "" }] },
+        { id: "0-2", title: "トリニティ経営とは｜技・知・心の3つの力", video: "", min: 25,
+          desc: "技＝運営力、知＝経営力、心＝人間力。どれか1つに偏ると起こる落とし穴と、理想のバランスを解説します。",
+          work: "3つの力それぞれを10点満点で自己採点し、一番伸ばしたい力を1つ選びましょう。",
+          files: [{ name: "3つの力 セルフチェックシート", url: "" }] },
+      ]
+    },
+    {
+      id: "c1", label: "技 ｜ 運営力", title: "再現性のあるサロン運営",
+      lead: "毎日の運営を仕組み化し、忙しいのに残らない状態から抜け出します。",
+      lessons: [
+        { id: "1-1", title: "予約・顧客管理の仕組み化", video: "", min: 20,
+          desc: "予約導線、カルテ、顧客台帳を整え、オーナーが毎回考えなくても回る仕組みをつくります。",
+          work: "現在の予約〜来店〜次回予約までの流れを書き出し、ムダを1つ見つけましょう。", files: [] },
+        { id: "1-2", title: "メニュー構成と時間設計", video: "", min: 20,
+          desc: "施術時間・準備時間・休憩を含めたタイムテーブルで、無理なく売上が立つメニュー構成を考えます。",
+          work: "1日の理想のタイムテーブルを作成しましょう。", files: [] },
+        { id: "1-3", title: "また来たくなる接客フロー", video: "", min: 20,
+          desc: "人間力×運営力＝安心感と居心地の良さ。誰がやっても質が落ちない接客の型をつくります。",
+          work: "カウンセリング〜お見送りまでの接客フローを1枚にまとめましょう。", files: [] },
+      ]
+    },
+    {
+      id: "c2", label: "知 ｜ 経営力", title: "数字と戦略で守る経営",
+      lead: "売上の公式から価格設計、月次の振り返りまで。感覚ではなく数字で判断できる力を育てます。",
+      lessons: [
+        { id: "2-1", title: "売上の公式｜新規客 × リピート率 × 客単価", video: "", min: 25,
+          desc: "売上を3つの要素に分解し、自分のサロンがどこを伸ばすべきかを明確にします。",
+          work: "直近3ヶ月の新規数・リピート率・客単価を書き出しましょう。", files: [] },
+        { id: "2-2", title: "価格設定と利益設計", video: "", min: 25,
+          desc: "安売りせずに選ばれる価格の決め方と、手元に残る利益の考え方を学びます。",
+          work: "主力メニューの原価と時給換算を計算してみましょう。", files: [] },
+        { id: "2-3", title: "月次の数字の振り返り方", video: "", min: 20,
+          desc: "毎月チェックすべき数字と、改善アクションの立て方を解説します。",
+          work: "月次振り返りフォームに今月の数字を入力しましょう。", files: [{ name: "月次レポートフォーム", url: "" }] },
+        { id: "2-4", title: "集客導線とSNS戦略", video: "", min: 25,
+          desc: "SNS・LINE・口コミをつなぐ集客導線の設計と、無理なく続く発信の仕組みをつくります。",
+          work: "自分のサロンの集客導線を図にしてみましょう。", files: [] },
+      ]
+    },
+    {
+      id: "c3", label: "心 ｜ 人間力", title: "信頼で選ばれ続けるサロン",
+      lead: "LTV（生涯顧客価値）を高める信頼関係と、オーナー自身が無理なく続けられる働き方を整えます。",
+      lessons: [
+        { id: "3-1", title: "LTVを高める信頼関係のつくり方", video: "", min: 25,
+          desc: "一生通いたいと思われるサロンの共通点と、なれ合いにならない距離感を学びます。",
+          work: "長く通ってくださっているお客様3名の共通点を書き出しましょう。", files: [] },
+        { id: "3-2", title: "戦わずに選ばれるブランドづくり", video: "", min: 25,
+          desc: "経営力×人間力＝ブランド力。価格競争に巻き込まれない「らしさ」の言語化をします。",
+          work: "サロンのコンセプトを1文で表現してみましょう。", files: [] },
+        { id: "3-3", title: "ワークライフバランスと続けられる経営", video: "", min: 20,
+          desc: "オーナーの体調や気分にサロンの安定が左右されないための、働き方と休み方を考えます。",
+          work: "1ヶ月の理想の稼働日と休日を決めましょう。", files: [] },
+      ]
+    },
+    {
+      id: "c4", label: "INTEGRATION", title: "統合と実践",
+      lead: "3つの力を統合し、次の1年の事業計画に落とし込みます。",
+      lessons: [
+        { id: "4-1", title: "3つの力のバランス診断", video: "", min: 20,
+          desc: "受講前と現在の3つの力を比べ、成長と次の課題を明確にします。",
+          work: "セルフチェックシートで再採点し、受講前と比べましょう。", files: [] },
+        { id: "4-2", title: "年間事業計画をつくる", video: "", min: 30,
+          desc: "売上目標・稼働計画・やらないことリストまで含めた、自分だけの事業計画を完成させます。",
+          work: "年間事業計画シートを完成させ、個別コンサルで共有しましょう。", files: [{ name: "年間事業計画シート", url: "" }] },
+      ]
+    },
+  ]
+};
+</script>
+
+<!-- ===== Login ===== -->
+<section id="login" class="hidden">
+  <form class="login-card" id="loginForm" autocomplete="off">
+    <div class="brand" id="lgBrand"></div>
+    <h1 class="serif" id="lgTitle"></h1>
+    <div class="sub" id="lgSub"></div>
+    <div class="rule"></div>
+    <input type="password" id="pw" placeholder="合言葉を入力" aria-label="合言葉">
+    <button class="btn btn-gold" type="submit">受講ページへ入る</button>
+    <div class="login-err" id="lgErr"></div>
+    <div class="login-note">合言葉がわからない場合は、講師までお問い合わせください。</div>
+  </form>
+</section>
+
+<!-- ===== App ===== -->
+<div id="app" class="hidden">
+  <header>
+    <div class="hd">
+      <button class="menu-btn" id="menuBtn" aria-label="メニュー">☰</button>
+      <a class="logo" href="#/"><small id="hdBrand"></small><b id="hdTitle"></b></a>
+      <div class="prog"><span id="hdProgTxt"></span><div class="bar"><i id="hdBar"></i></div></div>
+      <button class="logout" id="logout">ログアウト</button>
+    </div>
+  </header>
+  <div class="scrim" id="scrim"></div>
+  <div class="wrap">
+    <aside id="side"></aside>
+    <main id="main"></main>
+  </div>
+  <footer id="foot"></footer>
+</div>
+
+<script>
+(function(){
+  const KEY = "salocolle_keiei_honka_v1";
+  const store = {
+    load(){ try{ return JSON.parse(localStorage.getItem(KEY)) || {}; }catch(e){ return {}; } },
+    save(s){ try{ localStorage.setItem(KEY, JSON.stringify(s)); }catch(e){} }
+  };
+  let S = Object.assign({ auth:false, done:{}, notes:{}, last:null }, store.load());
+  const persist = () => store.save(S);
+
+  const $ = id => document.getElementById(id);
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+  // flatten lessons
+  const ALL = [];
+  COURSE.chapters.forEach(ch => ch.lessons.forEach(l => ALL.push(Object.assign({ ch }, l))));
+  const byId = id => ALL.find(l => l.id === id);
+
+  function ytId(v){
+    if(!v) return "";
+    v = v.trim();
+    if(/^[\w-]{11}$/.test(v)) return v;
+    const m = v.match(/(?:youtu\.be\/|v=|\/embed\/|\/live\/|\/shorts\/)([\w-]{11})/);
+    return m ? m[1] : "";
+  }
+  const pct = (a,b) => b ? Math.round(a/b*100) : 0;
+
+  /* ---------- Login ---------- */
+  $("lgBrand").textContent = COURSE.brand;
+  $("lgTitle").textContent = COURSE.title;
+  $("lgSub").textContent = COURSE.subtitle;
+  $("loginForm").addEventListener("submit", e => {
+    e.preventDefault();
+    if($("pw").value.trim() === COURSE.password){
+      S.auth = true; persist(); boot();
+    } else {
+      $("lgErr").textContent = "合言葉が違います。もう一度お試しください。";
+    }
+  });
+  $("logout").addEventListener("click", () => { S.auth = false; persist(); location.hash = "#/"; boot(); });
+
+  /* ---------- Mobile menu ---------- */
+  const closeMenu = () => { $("side").classList.remove("open"); $("scrim").classList.remove("open"); };
+  $("menuBtn").addEventListener("click", () => { $("side").classList.add("open"); $("scrim").classList.add("open"); });
+  $("scrim").addEventListener("click", closeMenu);
+
+  /* ---------- Render: header & sidebar ---------- */
+  function renderChrome(activeId){
+    $("hdBrand").textContent = COURSE.brand;
+    $("hdTitle").textContent = COURSE.title + "　" + COURSE.subtitle;
+    $("foot").textContent = "© " + COURSE.brand;
+    const n = ALL.filter(l => S.done[l.id]).length;
+    $("hdProgTxt").textContent = `受講進捗 ${pct(n, ALL.length)}%`;
+    $("hdBar").style.width = pct(n, ALL.length) + "%";
+
+    let h = `<a class="side-home" href="#/">⌂ 講座トップ</a>`;
+    COURSE.chapters.forEach(ch => {
+      const d = ch.lessons.filter(l => S.done[l.id]).length;
+      h += `<div class="ch"><div class="ch-hd"><small>${esc(ch.label)}</small><span>${esc(ch.title)}</span><em>${d}/${ch.lessons.length}</em></div><ul class="ls">`;
+      ch.lessons.forEach(l => {
+        const soon = !ytId(l.video);
+        h += `<li><a href="#/lesson/${encodeURIComponent(l.id)}" class="${l.id===activeId?"active":""}">
+          <span class="chk ${S.done[l.id]?"on":""}">${S.done[l.id]?"✓":""}</span>
+          <span>${esc(l.title)}</span>${soon?'<span class="soon">準備中</span>':""}</a></li>`;
+      });
+      h += `</ul></div>`;
+    });
+    $("side").innerHTML = h;
+    $("side").querySelectorAll("a").forEach(a => a.addEventListener("click", closeMenu));
+  }
+
+  /* ---------- Render: home ---------- */
+  function renderHome(){
+    const n = ALL.filter(l => S.done[l.id]).length;
+    const next = (S.last && byId(S.last) && !S.done[S.last]) ? byId(S.last) : (ALL.find(l => !S.done[l.id]) || ALL[0]);
+    const totalMin = ALL.reduce((a,l) => a + (l.min||0), 0);
+    let h = `<section class="hero">
+      <small>${esc(COURSE.brand)}</small>
+      <h1>${esc(COURSE.title)}<br>${esc(COURSE.subtitle)}</h1>
+      <p>${esc(COURSE.lead)}</p>
+      <div class="stats">
+        <div><b>${ALL.length}</b>レッスン</div>
+        <div><b>${n}</b>視聴済み</div>
+        <div><b>${pct(n,ALL.length)}%</b>進捗</div>
+        <div><b>${Math.round(totalMin/60*10)/10}</b>時間</div>
+      </div>
+      ${next ? `<div class="resume"><a class="btn btn-gold" href="#/lesson/${encodeURIComponent(next.id)}">▶ ${n? "続きから見る" : "受講をはじめる"}：${esc(next.title)}</a></div>` : ""}
+    </section>`;
+
+    if(COURSE.notices && COURSE.notices.length){
+      h += `<h2 class="sec-t">お知らせ</h2><ul class="notice">` +
+        COURSE.notices.map(x => `<li><time>${esc(x.date)}</time><span>${esc(x.text)}</span></li>`).join("") + `</ul>`;
+    }
+    h += `<h2 class="sec-t">カリキュラム</h2><div class="cards">`;
+    COURSE.chapters.forEach(ch => {
+      const d = ch.lessons.filter(l => S.done[l.id]).length;
+      const first = ch.lessons.find(l => !S.done[l.id]) || ch.lessons[0];
+      h += `<a class="card" href="#/lesson/${encodeURIComponent(first.id)}">
+        <small>${esc(ch.label)}</small><h3>${esc(ch.title)}</h3><p>${esc(ch.lead||"")}</p>
+        <div class="meta"><span>${ch.lessons.length}レッスン</span><span>${d}/${ch.lessons.length} 完了</span></div>
+        <div class="bar"><i style="width:${pct(d,ch.lessons.length)}%"></i></div></a>`;
+    });
+    h += `</div>`;
+    $("main").innerHTML = h;
+  }
+
+  /* ---------- Render: lesson ---------- */
+  function renderLesson(l){
+    S.last = l.id; persist();
+    const i = ALL.indexOf(l), prev = ALL[i-1], next = ALL[i+1];
+    const vid = ytId(l.video);
+    const player = vid
+      ? `<iframe src="https://www.youtube-nocookie.com/embed/${vid}?rel=0&modestbranding=1&playsinline=1" title="${esc(l.title)}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`
+      : `<div class="empty"><div><b>動画準備中</b>公開までしばらくお待ちください。</div></div>`;
+    const files = (l.files||[]).length
+      ? `<div class="pane"><h4>資料ダウンロード</h4><div class="files">` +
+        l.files.map(f => f.url
+          ? `<a href="${esc(f.url)}" target="_blank" rel="noopener">📄 ${esc(f.name)}</a>`
+          : `<a class="na">📄 ${esc(f.name)}（準備中）</a>`).join("") + `</div></div>` : "";
+
+    $("main").innerHTML = `
+      <div class="crumb"><a href="#/">講座トップ</a> ／ ${esc(l.ch.label)}｜${esc(l.ch.title)}</div>
+      <h1 class="lesson-t">${esc(l.title)}</h1>
+      <div class="player">${player}</div>
+      <div class="actions">
+        ${l.min ? `<span style="font-size:13px;color:var(--muted)">⏱ 約${l.min}分</span>` : ""}
+        <span class="sp"></span>
+        <button class="btn ${S.done[l.id]?"btn-done":"btn-line"}" id="doneBtn">${S.done[l.id]?"✓ 視聴完了":"視聴完了にする"}</button>
+      </div>
+      ${l.desc ? `<div class="pane"><h4>このレッスンで学ぶこと</h4><p>${esc(l.desc)}</p></div>` : ""}
+      ${l.work ? `<div class="pane work"><h4>実践ワーク</h4><p>${esc(l.work)}</p></div>` : ""}
+      ${files}
+      <div class="pane"><h4>わたしのメモ</h4>
+        <textarea id="note" placeholder="気づいたこと・やってみたいことをメモしておきましょう（この端末に保存されます）">${esc(S.notes[l.id]||"")}</textarea>
+        <div class="saved" id="savedMsg"></div></div>
+      <div class="nav2">
+        ${prev ? `<a href="#/lesson/${encodeURIComponent(prev.id)}"><small>← 前のレッスン</small>${esc(prev.title)}</a>` : "<span></span>"}
+        ${next ? `<a class="next" href="#/lesson/${encodeURIComponent(next.id)}"><small>次のレッスン →</small>${esc(next.title)}</a>` : ""}
+      </div>`;
+
+    $("doneBtn").addEventListener("click", () => {
+      S.done[l.id] = !S.done[l.id]; persist(); route();
+    });
+    let t;
+    $("note").addEventListener("input", e => {
+      clearTimeout(t);
+      t = setTimeout(() => { S.notes[l.id] = e.target.value; persist(); $("savedMsg").textContent = "保存しました"; setTimeout(()=>{ const m=$("savedMsg"); if(m) m.textContent=""; },1500); }, 500);
+    });
+    window.scrollTo({ top:0 });
+  }
+
+  /* ---------- Router ---------- */
+  function route(){
+    const m = location.hash.match(/^#\/lesson\/(.+)$/);
+    const l = m && byId(decodeURIComponent(m[1]));
+    renderChrome(l ? l.id : null);
+    l ? renderLesson(l) : renderHome();
+  }
+  function boot(){
+    if(S.auth){
+      $("login").classList.add("hidden"); $("app").classList.remove("hidden"); route();
+    } else {
+      $("app").classList.add("hidden"); $("login").classList.remove("hidden"); $("pw").value = ""; $("lgErr").textContent = "";
+    }
+  }
+  window.addEventListener("hashchange", () => S.auth && route());
+  boot();
+})();
+</script>
+</body>
+</html>
